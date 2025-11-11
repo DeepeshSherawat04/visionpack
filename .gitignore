@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment files
+.env
+
+# PyTorch / models
+*.pt
+*.pth
+runs/
+experiments/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+data/feedback/log.json
+
+# OS
+.DS_Store
+Thumbs.db
