@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+streamlit
+numpy
+opencv-python
+pillow
+ultralytics
+torch
+pytest
+python-multipart
+requests
+twilio
+python-dotenv

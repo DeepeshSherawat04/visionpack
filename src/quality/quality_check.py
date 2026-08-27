@@ -14,9 +14,9 @@ def _to_gray(image: np.ndarray) -> np.ndarray:
     return image
 
 
-def blur_score(image: np.ndarray) -> float:
+def sharpness_score(image: np.ndarray) -> float:
     """
-    Measure blur using variance of Laplacian.
+    Measure sharpness using variance of Laplacian.
     Higher value = sharper image.
     """
     gray = _to_gray(image)
@@ -48,12 +48,12 @@ def analyze_frame(image: np.ndarray, fps: float | None = None) -> Dict[str, floa
     """
     Compute quality metrics for a single frame.
     """
-    b_score = blur_score(image)
+    s_score = sharpness_score(image)
     br_score = brightness_score(image)
     n_level = noise_level(image)
 
     return {
-        "blur_score": b_score,
+        "sharpness": s_score,
         "brightness": br_score,
         "noise_level": n_level,
         "frame_rate": float(fps) if fps is not None else None,

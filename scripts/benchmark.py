@@ -24,7 +24,7 @@ def run_benchmark(model_path: str, image_path: str, iterations: int = 50):
     _ = model.predict(img_np, conf=0.4)
 
     times = []
-    for _ in range(iterations):
+    for _ in range(iterations): 
         t0 = time.perf_counter()
         _ = model.predict(img_np, conf=0.4)
         t1 = time.perf_counter()

@@ -9,9 +9,14 @@ import time
 
 # Import automation logic
 from src.automation.controller import handle_automation
-from src.data.feedback.whatsapp_bot import router as feedback_router
+try:
+    from src.data.feedback.whatsapp_bot import router as feedback_router
+    feedback_available = True
+except ImportError:
+    feedback_available = False
+    feedback_router = None
 
-# New imports for advanced features
+# New imports for advanced featuresf
 from src.quality.quality_check import analyze_frame
 from src.utils.cache import prediction_cache
 from src.monitor.performance import log_inference
@@ -31,7 +36,7 @@ app = FastAPI(title="VisionPack AI API")
 APP_START_TIME = time.time()
 
 # Load YOLO model
-model = YOLO("yolov8n.pt")
+model = YOLO("runs/detect/visdrone-100epochs/weights/best.pt")  # ← VisDrone model (10 classes)
 
 # Register any event listeners (quality issue, model updated, etc.)
 register_all_listeners()
@@ -88,7 +93,7 @@ async def predict(file: UploadFile = File(...)):
 
     # ---- YOLO INFERENCE + TIMING ----------------------------------------
     start_time = time.time()
-    results = model.predict(np_image, conf=0.4)
+    results = model.predict(np_image, conf=0.25, iou=0.3)
     inference_time_ms = (time.time() - start_time) * 1000.0
 
     # ---- BUILD DETECTIONS LIST ------------------------------------------
@@ -124,8 +129,8 @@ async def predict(file: UploadFile = File(...)):
     # ---- QUALITY ISSUE EVENT --------------------------------------------
     # Adjust thresholds as you like
     if (
-        quality.get("blur_score") is not None
-        and quality["blur_score"] < 50
+        quality.get("sharpness") is not None
+        and quality["sharpness"] < 50
     ) or (
         quality.get("brightness") is not None
         and quality["brightness"] < 0.2
@@ -162,7 +167,7 @@ async def predict_video(file: UploadFile = File(...)):
     Video prediction endpoint: summarize detections + quality per frame.
     """
     raw_bytes = await file.read()
-    summary = process_video(model, raw_bytes, conf=0.4)
+    summary = process_video(model, raw_bytes, conf=0.25)
 
     log_inference(
         source="api-video",
@@ -192,5 +197,6 @@ def retrain_model():
     return {"status": "ok", "new_model": new_path}
 
 
-# ✅ Register WhatsApp feedback router
-app.include_router(feedback_router)
+# ✅ Register WhatsApp feedback router (only if twilio is installed)
+if feedback_available and feedback_router is not None:
+    app.include_router(feedback_router)

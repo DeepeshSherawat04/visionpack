@@ -14,12 +14,13 @@ class PredictionCache:
     def make_key(data: bytes) -> str:
         return hashlib.sha256(data).hexdigest()
 
+# This function tells that if the key is present in the cache, it will return the value, otherwise it will return None and YOLO will get run.
     def get(self, key: str) -> Optional[Any]:
         return self._store.get(key)
 
     def set(self, key: str, value: Any) -> None:
         if len(self._store) >= self.max_items:
-            # naive eviction: pop first item
+            # naive eviction: pop first item using First-In-First-Out (FIFO) strategy
             first_key = next(iter(self._store))
             self._store.pop(first_key, None)
         self._store[key] = value
