@@ -1,4 +1,6 @@
-<p align="center">
+<div align="center">
+<!-- Tech Stack Badges -->
+<p>
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
   <img src="https://img.shields.io/badge/YOLOv8-Ultralytics-111F68?style=for-the-badge" />
@@ -7,20 +9,22 @@
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
   <img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" />
 </p>
-<h1 align="center">🚁 VisDrone Real-Time Object Detection</h1>
-<p align="center">
-  <b>End-to-End Aerial Object Detection with Human-in-the-Loop Feedback & Auto-Retraining</b>
-</p>
-<p align="center">
+<!-- Title -->
+<h1>🚁 VisDrone Real-Time Object Detection</h1>
+<!-- Subtitle -->
+<p><b>End-to-End Aerial Object Detection with Human-in-the-Loop Feedback & Auto-Retraining</b></p>
+<!-- Quick Links -->
+<p>
   <a href="#-overview">Overview</a> •
-  <a href="#-features">Features</a> •
-  <a href="#-architecture">Architecture</a> •
+  <a href="#-key-features">Features</a> •
+  <a href="#-system-architecture">Architecture</a> •
   <a href="#-project-structure">Structure</a> •
   <a href="#-quick-start">Quick Start</a> •
   <a href="#-api-reference">API</a> •
-  <a href="#-hitl-pipeline">HITL</a> •
+  <a href="#-human-in-the-loop-pipeline">HITL</a> •
   <a href="#-results">Results</a>
 </p>
+</div>
 📌 Overview
 Production-grade computer vision system that performs real-time object detection on aerial drone imagery using YOLOv8 fine-tuned on the VisDrone dataset (~6,200 images). Features a complete MLOps pipeline including a FastAPI inference backend, CVAT-powered annotation feedback, Twilio WhatsApp human-in-the-loop correction, and automated model retraining for continuous improvement.
 Table
@@ -247,7 +251,7 @@ Step	Action	Tool
 1	Model predicts on new aerial image	YOLOv8 + FastAPI
 2	Low-confidence / uncertain detection flagged	Custom logic + Quality Analyzer
 3	Image sent to worker via WhatsApp	Twilio API
-4	Worker reviews and replies: "yes" or "no: [correct_label]"	WhatsApp
+4	Worker reviews and replies: yes or no: [correct_label]	WhatsApp
 5	Corrections exported to CVAT for annotation refinement	CVAT
 6	Feedback stored in data/feedback/log.json	JSON Store
 7	Feedback count > threshold triggers retraining	Event Engine
@@ -273,7 +277,7 @@ Feedback Count > Threshold (e.g., 50 corrections)?
     │  Model Passes   │ ──► Replace old weights (hot-swap)
     │  Validation?    │ ──► Emit MODEL_UPDATED event
     └─────────────────┘
-Monitored Metrics:
+Monitored Metrics
 Inference latency (ms)
 Detection count per class
 Worker feedback accuracy
@@ -302,12 +306,14 @@ ID	Class	ID	Class
 🧪 Production-Grade Testing
 bash
 pytest -q
-✅ API prediction endpoint
-✅ Cache hit/miss logic
-✅ Quality metric calculations
-✅ Performance logger
-✅ Dashboard smoke test
-✅ Video processing utilities
+Table
+Test	Status
+API prediction endpoint	✅
+Cache hit/miss logic	✅
+Quality metric calculations	✅
+Performance logger	✅
+Dashboard smoke test	✅
+Video processing utilities	✅
 🗺 Roadmap
 [x] Integrate VisDrone dataset (~6,200 images)
 [x] YOLOv8 training pipeline (30 epochs, 640×640)
@@ -334,6 +340,6 @@ Deepesh Sherawat
 💻 GitHub
 📧 Email
 Built to demonstrate production-grade AI system design — from aerial dataset curation to deployed inference with continuous human feedback loops.
-<p align="center">
-  ⭐ Star this repo if you found it useful!
-</p>
+<div align="center">
+⭐ Star this repo if you found it useful!
+</div>
