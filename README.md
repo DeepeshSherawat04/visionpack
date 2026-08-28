@@ -440,7 +440,7 @@ Most repos showing "YOLO + FastAPI" stop at: *"Upload image → get bounding box
 
 **Deepesh Sherawat**
 
-🔗 [LinkedIn](#) • 💻 [GitHub](#) • 📧 [Email](deepeshsherawat1290@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/deepesh-sherawat-1a595523b) • 💻 [GitHub](https://github.com/DeepeshSherawat04) • 📧 [Email](mailto:deepeshsherawat1290@gmail.com)
 
 Built to demonstrate production-grade AI system design — from aerial dataset curation to deployed inference with continuous human feedback loops.
 
