@@ -63,43 +63,43 @@ Production-grade computer vision system that performs real-time object detection
 
 ```
 ┌─────────────────┐      HTTP/REST       ┌──────────────────┐
-│   Streamlit      │ ◄──────────────────► │   FastAPI         │
-│   Dashboard      │     (Port 8501)      │   Backend         │
-│  (src/dashboard) │                      │  (src/api)        │
-│                   │                      │   Port 8000       │
+│   Streamlit     │ ◄──────────────────► │   FastAPI        │
+│   Dashboard     │     (Port 8501)      │   Backend        │
+│ (src/dashboard) │                      │  (src/api)       │
+│                 │                      │   Port 8000      │
 └─────────────────┘                      └────────┬─────────┘
         │                                          │
         │ reads logs                               │ uploads
         ▼                                          ▼
 ┌──────────────────────────────────────────────────────────────┐
-│                     Core Processing Layer                      │
-│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐        │
-│  │   YOLOv8      │   │   Quality     │   │  Prediction   │        │
-│  │  Inference    │   │   Analyzer    │   │    Cache      │        │
-│  │  (VisDrone)   │   │               │   │  (SHA-256)    │        │
-│  └──────────────┘   └──────────────┘   └──────────────┘        │
-│         │                   │                   │              │
-│         └───────────────────┼───────────────────┘              │
-│                              ▼                                  │
-│               ┌─────────────────────────┐                       │
-│               │   Performance Logger     │                       │
-│               │   (src/monitor) JSONL    │                       │
-│               └─────────────────────────┘                       │
+│                     Core Processing Layer                    │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐      │
+│  │   YOLOv8     │   │   Quality    │   │  Prediction  │      │
+│  │  Inference   │   │   Analyzer   │   │    Cache     │      │
+│  │  (VisDrone)  │   │              │   │  (SHA-256)   │      │
+│  └──────────────┘   └──────────────┘   └──────────────┘      │
+│         │                   │                   │            │
+│         └───────────────────┼───────────────────┘            │
+│                              ▼                               │
+│               ┌─────────────────────────┐                    │
+│               │   Performance Logger    │                    │
+│               │   (src/monitor) JSONL   │                    │
+│               └─────────────────────────┘                    │
 └──────────────────────────────────────────────────────────────┘
         │                                          │
         ▼                                          ▼
 ┌─────────────────┐                      ┌──────────────────┐
-│  Event Engine    │  ──QUALITY_ISSUE──►  │  Auto-Retrainer   │
-│  & Listeners     │  ──MODEL_UPDATED──►  │  (src/automation) │
-│ (src/automation) │                      └──────────────────┘
-└─────────────────┘                                 │
+│  Event Engine   │  ──QUALITY_ISSUE──►  │  Auto-Retrainer  │
+│  & Listeners    │  ──MODEL_UPDATED──►  │  (src/automation)│
+│ (src/automation)│                      └──────────────────┘
+└─────────────────┘                                  │
         │                                            │
         ▼                                            ▼
-┌─────────────────┐                      ┌──────────────────┐
-│  WhatsApp Bot     │                      │  Feedback Store    │
-│  (Twilio API)     │                      │ (data/feedback)    │
-│  + CVAT           │                      │  log.json          │
-└─────────────────┘                      └──────────────────┘
+┌─────────────────┐                        ┌──────────────────┐
+│  WhatsApp Bot   │                        │  Feedback Store  │
+│  (Twilio API)   │                        │ (data/feedback)  │
+│  + CVAT         │                        │  log.json        │
+└─────────────────┘                        └──────────────────┘
 ```
 
 ---
@@ -331,20 +331,20 @@ Feedback Count > Threshold (e.g., 50 corrections)?
               │
               ▼
     ┌─────────────────┐
-    │  Export CVAT      │
-    │  Annotations       │
+    │  Export CVAT    │
+    │  Annotations    │
     └────────┬────────┘
               │
               ▼
     ┌─────────────────┐
-    │  Retrain YOLOv8    │ ──► VisDrone dataset + new feedback
-    │  on Mixed Data      │ ──► Validation mAP check
+    │  Retrain YOLOv8 │ ──► VisDrone dataset + new feedback
+    │  on Mixed Data  │ ──► Validation mAP check
     └────────┬────────┘
               │
               ▼
     ┌─────────────────┐
-    │  Model Passes      │ ──► Replace old weights (hot-swap)
-    │  Validation?         │ ──► Emit MODEL_UPDATED event
+    │  Model Passes   │ ──► Replace old weights (hot-swap)
+    │  Validation?    │ ──► Emit MODEL_UPDATED event
     └─────────────────┘
 ```
 
@@ -360,7 +360,7 @@ Feedback Count > Threshold (e.g., 50 corrections)?
 
 ## 📊 Performance Benchmarks
 
-*Run on Intel i5 / 16GB RAM / CPU-only / VisDrone 640×640*
+*Run on Intel i5 / 8GB RAM / CPU-only / VisDrone 640×640*
 
 | Metric                          | Value                    |
 |-----------------------------------|-----------------------------|
@@ -440,7 +440,7 @@ Most repos showing "YOLO + FastAPI" stop at: *"Upload image → get bounding box
 
 **Deepesh Sherawat**
 
-🔗 [LinkedIn](#) • 💻 [GitHub](#) • 📧 [Email](#)
+🔗 [LinkedIn](#) • 💻 [GitHub](#) • 📧 [Email](deepeshsherawat1290@gmail.com)
 
 Built to demonstrate production-grade AI system design — from aerial dataset curation to deployed inference with continuous human feedback loops.
 
