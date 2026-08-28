@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" />
 </p>
 
-# 🚁 VisDrone Real-Time Object Detection
+# VisionPack AI - Intelligent Computer Vision Platform for Packaging Automation
 
 **End-to-End Aerial Object Detection with Human-in-the-Loop Feedback & Auto-Retraining**
 
