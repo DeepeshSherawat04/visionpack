@@ -13,7 +13,7 @@
 
 # 📸 VisionPack AI
 
-**End-to-End Aerial Object Detection with Human-in-the-Loop Feedback & Auto-Retraining**
+**End-to-End Aerial Object Detection with Auto-Retraining**
 
 [Overview](#-overview) •
 [Features](#-key-features) •
@@ -21,7 +21,6 @@
 [Structure](#-project-structure) •
 [Quick Start](#-quick-start) •
 [API](#-api-reference) •
-[HITL](#-human-in-the-loop-hitl-pipeline) •
 [Results](#-performance-benchmarks)
 
 </div>
@@ -30,7 +29,7 @@
 
 ## 📌 Overview
 
-Production-grade computer vision system that performs real-time object detection on aerial drone imagery using **YOLOv8** fine-tuned on the **VisDrone dataset** (~6,200 images). Features a complete MLOps pipeline including a FastAPI inference backend, CVAT-powered annotation feedback, Twilio WhatsApp human-in-the-loop correction, and automated model retraining for continuous improvement.
+Production-grade computer vision system that performs real-time object detection on aerial drone imagery using **YOLOv8** fine-tuned on the **VisDrone dataset** (~6,200 images). Features a complete MLOps pipeline including a FastAPI inference backend, CVAT-powered annotation feedback and automated model retraining for continuous improvement.
 
 | Metric        | Value                                    |
 |---------------|-------------------------------------------|
@@ -51,11 +50,10 @@ Production-grade computer vision system that performs real-time object detection
 |---|----------------------------|------------------------------------------------------------------------------------------------------|
 | 1 | ⚡ Real-Time Detection      | YOLOv8 inference on aerial imagery with bounding boxes, class labels, and confidence scores          |
 | 2 | 🎯 VisDrone Optimized       | Fine-tuned for small, dense objects typical in drone-view datasets (pedestrians, vehicles, bicycles) |
-| 3 | 💬 Human-in-the-Loop        | CVAT annotation review + Twilio WhatsApp API for instant worker feedback and correction              |
-| 4 | 🔄 Auto-Retraining          | Triggered retraining pipeline when feedback volume crosses threshold; hot-swaps model without downtime |
-| 5 | 📊 Performance Monitoring   | Live latency tracking, detection counts, and model health metrics via Streamlit                      |
-| 6 | 🧪 Production Testing       | Full PyTest coverage for API, inference, cache, quality, and feedback logic                          |
-| 7 | 🚀 CI/CD Ready              | GitHub Actions workflow for automated testing on every push                                          |
+| 3 | 🔄 Auto-Retraining          | Triggered retraining pipeline when feedback volume crosses threshold; hot-swaps model without downtime |
+| 4 | 📊 Performance Monitoring   | Live latency tracking, detection counts, and model health metrics via Streamlit                      |
+| 5 | 🧪 Production Testing       | Full PyTest coverage for API, inference, cache, quality, and feedback logic                          |
+| 6 | 🚀 CI/CD Ready              | GitHub Actions workflow for automated testing on every push                                          |
 
 ---
 
@@ -112,7 +110,7 @@ Production-grade computer vision system that performs real-time object detection
 | ML Model      | Ultralytics YOLOv8             | State-of-the-art object detection on VisDrone          |
 | CV Processing | OpenCV + Pillow + NumPy        | Image preprocessing, augmentation, array ops           |
 | Dataset       | VisDrone 2019 (~6,200 images)  | Aerial imagery with 10 object categories               |
-| Feedback      | CVAT + Twilio WhatsApp API     | Human annotation review and instant messaging          |
+| Feedback      | CVAT                           | Human annotation review                                |
 | Training      | PyTorch + Ultralytics          | Model fine-tuning and retraining orchestration         |
 | Dashboard     | Streamlit                      | Real-time monitoring UI                                |
 | Caching       | In-Memory Dict + SHA-256       | Zero-dependency, sub-millisecond lookups                |
@@ -309,20 +307,6 @@ Trigger model retraining if enough feedback is collected.
 
 ---
 
-## 💬 Human-in-the-Loop (HITL) Pipeline
-
-| Step | Action                                                      | Tool                             |
-|------|----------------------------------------------------------------|-------------------------------------|
-| 1    | Model predicts on new aerial image                                | YOLOv8 + FastAPI                       |
-| 2    | Low-confidence / uncertain detection flagged                        | Custom logic + Quality Analyzer          |
-| 3    | Image sent to worker via WhatsApp                                    | Twilio API                                |
-| 4    | Worker reviews and replies: `yes` or `no: [correct_label]`              | WhatsApp                                    |
-| 5    | Corrections exported to CVAT for annotation refinement                   | CVAT                                          |
-| 6    | Feedback stored in `data/feedback/log.json`                                | JSON Store                                      |
-| 7    | Feedback count > threshold triggers retraining                               | Event Engine                                      |
-| 8    | New model evaluated and hot-swapped automatically                              | Retrainer                                           |
-
----
 
 ## 🔄 Auto-Retraining & Performance Monitoring
 
@@ -412,7 +396,6 @@ pytest -q
 - [x] YOLOv8 training pipeline (30 epochs, 640×640)
 - [x] FastAPI inference backend
 - [x] Streamlit monitoring dashboard
-- [x] Human-in-the-Loop WhatsApp feedback
 - [x] Automated retraining trigger
 - [ ] Integrate YCloud WhatsApp API (free tier)
 - [ ] Add GPU support toggle
@@ -428,7 +411,7 @@ Most repos showing "YOLO + FastAPI" stop at: *"Upload image → get bounding box
 
 **VisionPack AI** goes further:
 
-- **Self-Improving** — It doesn't just detect; it learns from human feedback via WhatsApp and retrains itself.
+- **Self-Improving** — It doesn't just detect; it learns from retrains itself.
 - **Quality-Aware** — It validates camera health (blur, brightness, noise) before trusting detections.
 - **Production-Ready** — Caching, logging, health checks, automated tests, and CI/CD, not just a notebook.
 - **Observable** — Dashboard shows historical trends, not just one-off predictions.
