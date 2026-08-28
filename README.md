@@ -1,8 +1,17 @@
 <div align="center">
 
-<div align="center"> <!-- Tech Stack Badges --> <p> <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" /></a> <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" /></a> <a href="https://docs.ultralytics.com/"><img src="https://img.shields.io/badge/YOLOv8-Ultralytics-111F68?style=for-the-badge" /></a> <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" /></a> <a href="https://opencv.org/"><img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" /></a> <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" /></a> <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" /></a> </p>
+<!-- Tech Stack Badges -->
+<p>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" /></a>
+  <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" /></a>
+  <a href="https://docs.ultralytics.com/"><img src="https://img.shields.io/badge/YOLOv8-Ultralytics-111F68?style=for-the-badge" /></a>
+  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" /></a>
+  <a href="https://opencv.org/"><img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" /></a>
+  <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" /></a>
+  <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/PyTest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" /></a>
+</p>
 
-# VisionPack AI
+# 📸 VisionPack AI
 
 **End-to-End Aerial Object Detection with Human-in-the-Loop Feedback & Auto-Retraining**
 
@@ -23,30 +32,30 @@
 
 Production-grade computer vision system that performs real-time object detection on aerial drone imagery using **YOLOv8** fine-tuned on the **VisDrone dataset** (~6,200 images). Features a complete MLOps pipeline including a FastAPI inference backend, CVAT-powered annotation feedback, Twilio WhatsApp human-in-the-loop correction, and automated model retraining for continuous improvement.
 
-| Metric          | Value                          |
-|-----------------|---------------------------------|
-| Dataset         | VisDrone 2019 (Aerial Imagery)  |
-| Model           | YOLOv8n → YOLOv8m (upgradable)  |
-| Images          | ~6,200 annotated aerial frames  |
-| Classes         | 10 (pedestrian, vehicle, bicycle, etc.) |
-| Inference       | ~120 ms on CPU                  |
-| API Framework   | FastAPI + Uvicorn               |
-| Feedback Loop   | WhatsApp (Twilio) + CVAT        |
-| Dashboard       | Streamlit (Port 8501)           |
+| Metric        | Value                                    |
+|---------------|-------------------------------------------|
+| Dataset       | VisDrone 2019 (Aerial Imagery)             |
+| Model         | YOLOv8n → YOLOv8m (upgradable)             |
+| Images        | ~6,200 annotated aerial frames             |
+| Classes       | 10 (pedestrian, vehicle, bicycle, etc.)    |
+| Inference     | ~120 ms on CPU                             |
+| API Framework | FastAPI + Uvicorn                          |
+| Feedback Loop | WhatsApp (Twilio) + CVAT                   |
+| Dashboard     | Streamlit (Port 8501)                      |
 
 ---
 
 ## 🔥 Key Features
 
-| # | Feature                     | Description                                                                                   |
-|---|------------------------------|-------------------------------------------------------------------------------------------------|
-| 1 | ⚡ Real-Time Detection        | YOLOv8 inference on aerial imagery with bounding boxes, class labels, and confidence scores    |
-| 2 | 🎯 VisDrone Optimized         | Fine-tuned for small, dense objects typical in drone-view datasets (pedestrians, vehicles, bicycles) |
-| 3 | 💬 Human-in-the-Loop          | CVAT annotation review + Twilio WhatsApp API for instant worker feedback and correction        |
-| 4 | 🔄 Auto-Retraining            | Triggered retraining pipeline when feedback volume crosses threshold; hot-swaps model without downtime |
-| 5 | 📊 Performance Monitoring     | Live latency tracking, detection counts, and model health metrics via Streamlit                |
-| 6 | 🧪 Production Testing         | Full PyTest coverage for API, inference, cache, quality, and feedback logic                    |
-| 7 | 🚀 CI/CD Ready                | GitHub Actions workflow for automated testing on every push                                    |
+| # | Feature                   | Description                                                                                        |
+|---|----------------------------|------------------------------------------------------------------------------------------------------|
+| 1 | ⚡ Real-Time Detection      | YOLOv8 inference on aerial imagery with bounding boxes, class labels, and confidence scores          |
+| 2 | 🎯 VisDrone Optimized       | Fine-tuned for small, dense objects typical in drone-view datasets (pedestrians, vehicles, bicycles) |
+| 3 | 💬 Human-in-the-Loop        | CVAT annotation review + Twilio WhatsApp API for instant worker feedback and correction              |
+| 4 | 🔄 Auto-Retraining          | Triggered retraining pipeline when feedback volume crosses threshold; hot-swaps model without downtime |
+| 5 | 📊 Performance Monitoring   | Live latency tracking, detection counts, and model health metrics via Streamlit                      |
+| 6 | 🧪 Production Testing       | Full PyTest coverage for API, inference, cache, quality, and feedback logic                          |
+| 7 | 🚀 CI/CD Ready              | GitHub Actions workflow for automated testing on every push                                          |
 
 ---
 
@@ -97,20 +106,20 @@ Production-grade computer vision system that performs real-time object detection
 
 ## 🛠 Tech Stack
 
-| Layer          | Technology                     | Purpose                                            |
-|-----------------|---------------------------------|------------------------------------------------------|
-| Backend         | FastAPI + Uvicorn               | Async REST API with auto-generated Swagger docs      |
-| ML Model        | Ultralytics YOLOv8              | State-of-the-art object detection on VisDrone         |
-| CV Processing   | OpenCV + Pillow + NumPy         | Image preprocessing, augmentation, array ops          |
-| Dataset         | VisDrone 2019 (~6,200 images)   | Aerial imagery with 10 object categories               |
-| Feedback        | CVAT + Twilio WhatsApp API      | Human annotation review and instant messaging          |
-| Training        | PyTorch + Ultralytics           | Model fine-tuning and retraining orchestration          |
-| Dashboard       | Streamlit                       | Real-time monitoring UI                                 |
-| Caching         | In-Memory Dict + SHA-256        | Zero-dependency, sub-millisecond lookups                |
-| Events          | Custom Event Engine             | Decoupled automation without heavy brokers               |
-| Monitoring      | psutil + JSONL logs             | Lightweight, no external DB needed                        |
-| Testing         | PyTest + FastAPI TestClient     | Unit & integration test coverage                            |
-| CI/CD           | GitHub Actions                  | Automated quality gates                                       |
+| Layer         | Technology                   | Purpose                                             |
+|---------------|-------------------------------|-------------------------------------------------------|
+| Backend       | FastAPI + Uvicorn              | Async REST API with auto-generated Swagger docs        |
+| ML Model      | Ultralytics YOLOv8             | State-of-the-art object detection on VisDrone          |
+| CV Processing | OpenCV + Pillow + NumPy        | Image preprocessing, augmentation, array ops           |
+| Dataset       | VisDrone 2019 (~6,200 images)  | Aerial imagery with 10 object categories               |
+| Feedback      | CVAT + Twilio WhatsApp API     | Human annotation review and instant messaging          |
+| Training      | PyTorch + Ultralytics          | Model fine-tuning and retraining orchestration         |
+| Dashboard     | Streamlit                      | Real-time monitoring UI                                |
+| Caching       | In-Memory Dict + SHA-256       | Zero-dependency, sub-millisecond lookups                |
+| Events        | Custom Event Engine            | Decoupled automation without heavy brokers              |
+| Monitoring    | psutil + JSONL logs            | Lightweight, no external DB needed                      |
+| Testing       | PyTest + FastAPI TestClient    | Unit & integration test coverage                        |
+| CI/CD         | GitHub Actions                 | Automated quality gates                                 |
 
 ---
 
@@ -302,16 +311,16 @@ Trigger model retraining if enough feedback is collected.
 
 ## 💬 Human-in-the-Loop (HITL) Pipeline
 
-| Step | Action                                                   | Tool                       |
-|------|-----------------------------------------------------------|------------------------------|
-| 1    | Model predicts on new aerial image                        | YOLOv8 + FastAPI              |
-| 2    | Low-confidence / uncertain detection flagged               | Custom logic + Quality Analyzer |
-| 3    | Image sent to worker via WhatsApp                          | Twilio API                     |
-| 4    | Worker reviews and replies: `yes` or `no: [correct_label]`  | WhatsApp                        |
-| 5    | Corrections exported to CVAT for annotation refinement     | CVAT                              |
-| 6    | Feedback stored in `data/feedback/log.json`                 | JSON Store                          |
-| 7    | Feedback count > threshold triggers retraining              | Event Engine                          |
-| 8    | New model evaluated and hot-swapped automatically           | Retrainer                              |
+| Step | Action                                                      | Tool                             |
+|------|----------------------------------------------------------------|-------------------------------------|
+| 1    | Model predicts on new aerial image                                | YOLOv8 + FastAPI                       |
+| 2    | Low-confidence / uncertain detection flagged                        | Custom logic + Quality Analyzer          |
+| 3    | Image sent to worker via WhatsApp                                    | Twilio API                                |
+| 4    | Worker reviews and replies: `yes` or `no: [correct_label]`              | WhatsApp                                    |
+| 5    | Corrections exported to CVAT for annotation refinement                   | CVAT                                          |
+| 6    | Feedback stored in `data/feedback/log.json`                                | JSON Store                                      |
+| 7    | Feedback count > threshold triggers retraining                               | Event Engine                                      |
+| 8    | New model evaluated and hot-swapped automatically                              | Retrainer                                           |
 
 ---
 
@@ -353,14 +362,14 @@ Feedback Count > Threshold (e.g., 50 corrections)?
 
 *Run on Intel i5 / 8GB RAM / CPU-only / VisDrone 640×640*
 
-| Metric                          | Value                    |
-|-----------------------------------|-----------------------------|
-| Average Inference Latency          | ~118 ms                       |
-| Cache Hit Latency                  | < 1 ms                          |
-| First Load (Model + Warmup)         | ~3.8 s                            |
-| VisDrone Classes Supported          | 10                                  |
-| Input Image Formats                 | JPG, JPEG, PNG                        |
-| Concurrent Requests                 | Async via FastAPI                       |
+| Metric                       | Value              |
+|-------------------------------|----------------------|
+| Average Inference Latency      | ~118 ms                |
+| Cache Hit Latency              | < 1 ms                  |
+| First Load (Model + Warmup)    | ~3.8 s                    |
+| VisDrone Classes Supported     | 10                          |
+| Input Image Formats            | JPG, JPEG, PNG                |
+| Concurrent Requests            | Async via FastAPI               |
 
 ```bash
 python -m scripts.benchmark --image bus.jpg --iterations 30
@@ -371,12 +380,12 @@ python -m scripts.benchmark --image bus.jpg --iterations 30
 ## 🎯 VisDrone Dataset Classes
 
 | ID | Class      | ID | Class            |
-|----|-------------|----|--------------------|
-| 0  | pedestrian  | 5  | bus                  |
-| 1  | person      | 6  | truck                  |
-| 2  | bicycle     | 7  | motor                    |
-| 3  | car         | 8  | tricycle                   |
-| 4  | van         | 9  | awning-tricycle               |
+|----|------------|----|-------------------|
+| 0  | pedestrian | 5  | bus               |
+| 1  | person     | 6  | truck             |
+| 2  | bicycle    | 7  | motor             |
+| 3  | car        | 8  | tricycle          |
+| 4  | van        | 9  | awning-tricycle   |
 
 ---
 
@@ -387,13 +396,13 @@ pytest -q
 ```
 
 | Test                         | Status |
-|--------------------------------|----------|
-| API prediction endpoint         | ✅         |
+|-------------------------------|----------|
+| API prediction endpoint        | ✅         |
 | Cache hit/miss logic            | ✅         |
-| Quality metric calculations     | ✅         |
-| Performance logger              | ✅         |
-| Dashboard smoke test            | ✅         |
-| Video processing utilities      | ✅         |
+| Quality metric calculations      | ✅         |
+| Performance logger                | ✅         |
+| Dashboard smoke test                | ✅         |
+| Video processing utilities            | ✅         |
 
 ---
 
@@ -417,7 +426,7 @@ pytest -q
 
 Most repos showing "YOLO + FastAPI" stop at: *"Upload image → get bounding box."*
 
-**VisDrone Detection** goes further:
+**VisionPack AI** goes further:
 
 - **Self-Improving** — It doesn't just detect; it learns from human feedback via WhatsApp and retrains itself.
 - **Quality-Aware** — It validates camera health (blur, brightness, noise) before trusting detections.
